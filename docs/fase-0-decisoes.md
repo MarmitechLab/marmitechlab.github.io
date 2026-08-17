@@ -10,11 +10,11 @@
 
 | Item | Decisão / status |
 |---|---|
-| Repositório | ✅ [`MarmitechLab/catalogo`](https://github.com/MarmitechLab/catalogo) |
+| Repositório | ✅ [`MarmitechLab/MarmitechLab.github.io`](https://github.com/MarmitechLab/MarmitechLab.github.io) |
 | Visibilidade | ✅ **público** |
-| Remote `origin` | ✅ `https://github.com/MarmitechLab/catalogo.git` (branch `main` sincronizada) |
+| Remote `origin` | ✅ `https://github.com/MarmitechLab/MarmitechLab.github.io.git` (branch `main` sincronizada) |
 
-> Observação: o repositório real usa o nome `catalogo` (não `marmitech-catalogo` como proposto no plano). Todas as referências a nome/base/URL devem usar `catalogo`.
+> O repositório foi renomeado de `catalogo` para `MarmitechLab.github.io` para publicar o site na **raiz** (`https://marmitechlab.github.io`). O endereço antigo `/catalogo` não é mais usado.
 
 **Risco associado ao repositório público:** imagens e nomes de alunos ficam acessíveis a qualquer pessoa. A política definida no item 3 será aplicada na curadoria do conteúdo (Fase 6) e revisada na Fase 7.
 
@@ -22,14 +22,13 @@
 
 ## 2. Domínio
 
-**Definição da V1:** `https://marmitechlab.github.io/catalogo`
+**Definição da V1:** `https://marmitechlab.github.io` (repositório `MarmitechLab.github.io`, site na raiz)
 
-Isso será refletido no `astro.config.mjs` (Fase 1):
+Isso é refletido no `astro.config.mjs` (sem `base`, deploy na raiz):
 
 ```js
 export default defineConfig({
   site: 'https://marmitechlab.github.io',
-  base: '/catalogo',
 });
 ```
 
@@ -101,7 +100,7 @@ authors: z.array(z.object({
 | Item | Status |
 |---|---|
 | Git inicializado | ✅ `main` |
-| Remote `origin` | ✅ `https://github.com/MarmitechLab/catalogo.git` |
+| Remote `origin` | ✅ `https://github.com/MarmitechLab/MarmitechLab.github.io.git` |
 | Identidade git | ✅ `douglaz` / `fdcsone@hotmail.com` |
 | Node.js | ✅ v20.20.2 |
 | npm | ✅ 10.8.2 |
@@ -142,9 +141,9 @@ program: z.enum(['marmitech', 'marmitech-jr']),
 - [x] Git local inicializado
 - [x] `.gitignore` e `README.md` criados
 - [x] Registro de decisões criado (este arquivo)
-- [x] Repositório criado no GitHub: `MarmitechLab/catalogo` (público)
+- [x] Repositório criado no GitHub: `MarmitechLab/MarmitechLab.github.io` (público)
 - [x] `origin` configurado e `main` publicada
 - [x] Visibilidade definida (pública)
-- [x] Domínio definido: `https://marmitechlab.github.io/catalogo`
+- [x] Domínio (site na raiz): `https://marmitechlab.github.io`
 - [x] Logo organizada: JPEG + PNG + favicons (SVG documentado como opcional — item 4)
 - [x] Política de dados definida: **primeiro nome + turma** (item 3)

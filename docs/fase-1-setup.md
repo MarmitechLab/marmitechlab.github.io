@@ -26,12 +26,12 @@
 
 - `@fontsource-variable/space-grotesk` (sem request externo ao Google Fonts)
 
-### 4. Deploy path (`base`)
+### 4. Deploy path (raiz — após renomear para `MarmitechLab.github.io`)
 
-- `astro.config.mjs`: `site: 'https://marmitechlab.github.io'`, `base: '/catalogo'`
-- `import.meta.env.BASE_URL` retorna `/catalogo` **sem barra final** → usar `${BASE_URL}/...`
-- Links internos de página (`<a href="/">`) não são reescritos automaticamente → usar `${BASE_URL}/`
-- Validação via `npm run build`: paths gerados como `/catalogo/...` ✓
+- `astro.config.mjs`: `site: 'https://marmitechlab.github.io'` **sem `base`** (deploy na raiz)
+- `import.meta.env.BASE_URL` retorna `/` → links de página `$/projetos/` funcionam direto
+- Assets de `public/` (capas `src/lib/url.ts` → `assetUrl`) concatenam sem dupla barra
+- Validação via `npm run build`: paths gerados como `/projetos/`, `/projects/.../cover.svg` ✓
 
 ---
 
@@ -54,8 +54,8 @@ public/                   # favicons e logo (Fase 0) — favicon.ico/svg padrão
 - [x] `npm install` OK (247 pacotes)
 - [x] `npx astro add tailwind --yes` OK (`tailwindcss` + `@tailwindcss/vite` 4.3.3)
 - [x] `npm run build` OK (1 página, ~1.5s)
-- [x] `npm run dev` OK — `http://localhost:4321/catalogo` responde **200**
-- [x] `/catalogo/favicon-32.png` e `/catalogo/assets/logo/marmitech-logo.png` servidos com **200**
+- [x] `npm run dev` OK — `http://localhost:4321/` responde **200**
+- [x] `/favicon-32.png` e `/assets/logo/marmitech_logo.png` servidos com **200**
 - [x] CSS de produção contém os tokens (`.bg-ink`, `.border-line`, `.text-marmitech-jr`) e fontes woff2
 
 ---

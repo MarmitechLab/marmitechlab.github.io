@@ -29,7 +29,7 @@ Site-catálogo dos projetos estudantis do **Marmitech — Educação Tecnológic
 
 ```bash
 npm install        # instala dependências
-npm run dev        # dev server → http://localhost:4321/catalogo
+npm run dev        # dev server → http://localhost:4321/
 npm run build      # gera ./dist (estático, pronto para deploy)
 npm run preview    # serve o build localmente
 ```
@@ -38,7 +38,7 @@ npm run preview    # serve o build localmente
 
 ## Como cadastrar um projeto
 
-Cada projeto é um arquivo Markdown em `src/content/projects/<slug>.md`. O nome do arquivo (`slug`) define a URL do projeto: `/catalogo/projetos/<slug>`.
+Cada projeto é um arquivo Markdown em `src/content/projects/<slug>.md`. O nome do arquivo (`slug`) define a URL do projeto: `/projetos/<slug>`.
 
 **Passo a passo**
 
@@ -76,12 +76,12 @@ Cada projeto é um arquivo Markdown em `src/content/projects/<slug>.md`. O nome 
 
 ## Repositório
 
-- GitHub: [`MarmitechLab/catalogo`](https://github.com/MarmitechLab/catalogo) (público)
-- Site (GitHub Pages): `https://marmitechlab.github.io/catalogo`
+- GitHub: [`MarmitechLab/MarmitechLab.github.io`](https://github.com/MarmitechLab/MarmitechLab.github.io) (público)
+- Site (GitHub Pages): `https://marmitechlab.github.io`
 
 ## Fase 0 — concluída
 
-- [x] Repositório público criado: [`MarmitechLab/catalogo`](https://github.com/MarmitechLab/catalogo)
-- [x] Domínio definido: `https://marmitechlab.github.io/catalogo`
+- [x] Repositório público criado: [`MarmitechLab/MarmitechLab.github.io`](https://github.com/MarmitechLab/MarmitechLab.github.io)
+- [x] Domínio (site na raiz): `https://marmitechlab.github.io`
 - [x] Logo organizada (JPEG/PNG + favicons) — conversão para SVG documentada como opcional
 - [x] Política de dados definida: **primeiro nome + turma**, sem dados de contato

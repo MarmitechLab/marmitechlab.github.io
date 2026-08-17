@@ -4,6 +4,7 @@ import ProjectLayout from '../../layouts/ProjectLayout.astro';
 import ProgramBadge from '../../components/ProgramBadge.astro';
 import TechnologyBadge from '../../components/TechnologyBadge.astro';
 import CategoryBadge from '../../components/CategoryBadge.astro';
+import { assetUrl } from '../../lib/url';
 
 export async function getStaticPaths() {
 	const projects = await getCollection('projects', ({ data }) => data.status === 'publicado');
@@ -37,7 +38,7 @@ const base = import.meta.env.BASE_URL;
 		</p>
 
 		<img
-			src={`${base}${data.cover}`}
+			src={assetUrl(data.cover)}
 			alt={`Capa do projeto ${data.title}`}
 			class="mt-6 w-full rounded-2xl border border-line object-cover"
 		/>

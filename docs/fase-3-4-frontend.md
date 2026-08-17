@@ -37,7 +37,7 @@
 
 - **Só `status: publicado`** aparece em qualquer listagem/página (helpers em `src/lib/projects.ts`)
 - **Rotas `[...slug]` e `[...technology]`** geradas via `getStaticPaths` a partir da collection
-- **Base path** (`/catalogo`): links internos e assets usam `import.meta.env.BASE_URL`
+- **Deploy na raiz** (`https://marmitechlab.github.io`, sem `base`): links internos usam `import.meta.env.BASE_URL` e assets de capa usam `assetUrl()` (`src/lib/url.ts`)
 - **Markdown** estilizado com `@tailwindcss/typography` (`prose`)
 - Filtros sem framework: cada card expõe `data-category/program/year/search`
 

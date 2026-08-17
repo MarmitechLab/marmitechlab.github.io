@@ -2,6 +2,7 @@
 import ProgramBadge from './ProgramBadge.astro';
 import TechnologyBadge from './TechnologyBadge.astro';
 import CategoryBadge from './CategoryBadge.astro';
+import { assetUrl } from '../lib/url';
 import type { Project } from '../lib/projects';
 
 interface Props {
@@ -27,7 +28,7 @@ const searchText = [data.title, data.shortDescription, data.class, ...data.techn
 	<a href={`${base}projetos/${id}/`} class="block">
 		<div class="aspect-video overflow-hidden bg-neutral-100">
 			<img
-				src={`${base}${data.cover}`}
+				src={assetUrl(data.cover)}
 				alt={`Capa do projeto ${data.title}`}
 				loading="lazy"
 				class="h-full w-full object-cover transition duration-300 hover:scale-105"
