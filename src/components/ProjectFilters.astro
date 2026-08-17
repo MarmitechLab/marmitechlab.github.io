@@ -66,7 +66,7 @@ const categoryLabels: Record<string, string> = {
 </div>
 
 <script>
-	const cards = Array.from(document.querySelectorAll('[data-project-card]'));
+	const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-project-card]'));
 	const semResultados = document.getElementById('sem-resultados') as HTMLElement | null;
 	const busca = document.getElementById('busca') as HTMLInputElement | null;
 	const cat = document.getElementById('filtro-categoria') as HTMLSelectElement | null;
