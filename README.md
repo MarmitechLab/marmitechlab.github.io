@@ -30,4 +30,4 @@ Site-catálogo dos projetos estudantis do **Marmitech** (Ensino Médio) e **Marm
 ## Decisões pendentes (Fase 0)
 
 - [ ] Política de exposição de dados dos estudantes
-- [ ] Exportar ativos de logo em SVG (Marmitech e variante Jr.)
+- [ ] Converter a logo para SVG (raster JPEG já organizado em `public/assets/logo/`)

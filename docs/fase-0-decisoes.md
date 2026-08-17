@@ -53,15 +53,35 @@ Domínio próprio fica **fora do escopo da V1** — reavaliar apenas se houver n
 
 ## 4. Ativos de logo (Marmitech e Marmitech Jr.)
 
-❌ **PENDENTE** — exportar a partir dos arquivos-fonte da logo.
+✅ **JPEG organizado no repositório** — fonte: `~/Documents/marmitech-logo.jpg` (1024×1024, quadrada).
 
-**Requisitos:**
-- Exportar em **SVG com traço único (`stroke`)**, nunca bitmap/preenchido (consistência com o estilo "circuito")
-- Destino no app (criado na Fase 1): `public/assets/logo/`
-  - `public/assets/logo/marmitech.svg`
-  - `public/assets/logo/marmitech-jr.svg` (mesma logo + acento laranja `#F97316`)
-- **Favicon:** recorte apenas do ícone (sem o wordmark), em SVG → `public/favicon.svg`
-- Variante Jr.: definir se é a mesma logo + cor, ou arte distinta (recomendação: mesma logo + acento laranja, evitando segunda marca)
+### Ativos gerados
+
+| Arquivo | Uso |
+|---|---|
+| `public/assets/logo/marmitech-logo.jpg` | Original em JPEG (1024×1024) |
+| `public/assets/logo/marmitech-logo.png` | PNG 512×512 (conversão via `sips`) |
+| `public/favicon-16.png` | Favicon 16×16 |
+| `public/favicon-32.png` | Favicon 32×32 |
+| `public/apple-touch-icon.png` | Ícone de atalho iOS/Android (180×180) |
+
+### Limitações do JPEG
+
+- É **raster (bitmap)**: não tem o traço `stroke` vetorial previsto na identidade visual
+- Não tem transparência (fundo provavelmente branco) — o favicon pode precisar de fundo transparente depois
+- Se a logo tiver fundo branco, considerar recorte/cropping no futuro
+
+### SVG — pendente (3 opções, em ordem de preferência)
+
+1. **Recriar o SVG manualmente** a partir da logo — resultado ideal (traço único, controle total), mas exige alguém com a arte aberta no editor vetorial
+2. **Trace automático** — `brew install potrace` e depois:
+   ```bash
+   potrace public/assets/logo/marmitech-logo.png -s -o public/assets/logo/marmitech.svg
+   ```
+   (bom para arte de linha simples; resultado varia conforme o desenho)
+3. **Manter raster na V1** e converter para SVG depois, se necessário
+
+**Variante Marmitech Jr.:** mesma logo + acento laranja `#F97316` — pode ser aplicada via filtro CSS (`hue-rotate`/`sepia`+`saturate`) ou recriando o SVG com a cor trocada. Sem necessidade de nova arte.
 
 ---
 
