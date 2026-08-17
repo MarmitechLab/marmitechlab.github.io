@@ -1,0 +1,107 @@
+---
+import type { Project } from '../lib/projects';
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+const categories = [...new Set(projects.map((p) => p.data.category))].sort();
+const years = [...new Set(projects.map((p) => p.data.year))].sort((a, b) => b - a);
+const categoryLabels: Record<string, string> = {
+  jogo: 'Jogo',
+  app: 'App',
+  web: 'Web',
+  ia: 'IA',
+  outro: 'Outro',
+};
+---
+<div>
+	<div class="mb-8 flex flex-col gap-4 rounded-2xl border border-line bg-white p-5">
+		<input
+			id="busca"
+			type="search"
+			placeholder="Buscar projeto, tecnologia ou turma…"
+			class="w-full rounded-md border border-line bg-paper px-4 py-2.5 text-sm outline-none focus:border-marmitech-jr"
+		/>
+		<div class="flex flex-wrap items-center gap-3 text-sm">
+			<select
+				id="filtro-categoria"
+				class="rounded-md border border-line bg-paper px-3 py-2 outline-none focus:border-marmitech-jr"
+			>
+				<option value="">Todas as categorias</option>
+				{categories.map((c) => (
+					<option value={c}>{categoryLabels[c] ?? c}</option>
+				))}
+			</select>
+			<select
+				id="filtro-programa"
+				class="rounded-md border border-line bg-paper px-3 py-2 outline-none focus:border-marmitech-jr"
+			>
+				<option value="">Todos os programas</option>
+				<option value="marmitech">Marmitech</option>
+				<option value="marmitech-jr">Marmitech Jr.</option>
+			</select>
+			<select
+				id="filtro-ano"
+				class="rounded-md border border-line bg-paper px-3 py-2 outline-none focus:border-marmitech-jr"
+			>
+				<option value="">Todos os anos</option>
+				{years.map((y) => (
+					<option value={String(y)}>{y}</option>
+				))}
+			</select>
+			<button
+				id="limpar-filtros"
+				type="button"
+				class="rounded-md border border-line px-3 py-2 font-medium text-neutral-600 transition hover:bg-black/5"
+			>
+				Limpar
+			</button>
+		</div>
+	</div>
+	<p id="sem-resultados" class="hidden rounded-2xl border border-dashed border-line p-8 text-center text-neutral-500">
+		Nenhum projeto encontrado com esses filtros.
+	</p>
+</div>
+
+<script>
+	const cards = Array.from(document.querySelectorAll('[data-project-card]'));
+	const semResultados = document.getElementById('sem-resultados') as HTMLElement | null;
+	const busca = document.getElementById('busca') as HTMLInputElement | null;
+	const cat = document.getElementById('filtro-categoria') as HTMLSelectElement | null;
+	const prog = document.getElementById('filtro-programa') as HTMLSelectElement | null;
+	const ano = document.getElementById('filtro-ano') as HTMLSelectElement | null;
+	const limpar = document.getElementById('limpar-filtros') as HTMLButtonElement | null;
+
+	function aplicar() {
+		const q = busca?.value.trim().toLowerCase() ?? '';
+		const c = cat?.value ?? '';
+		const p = prog?.value ?? '';
+		const y = ano?.value ?? '';
+		let visiveis = 0;
+
+		for (const card of cards) {
+			const buscaOk = !q || (card.dataset.search ?? '').includes(q);
+			const catOk = !c || card.dataset.category === c;
+			const progOk = !p || card.dataset.program === p;
+			const anoOk = !y || card.dataset.year === y;
+			const show = buscaOk && catOk && progOk && anoOk;
+			card.style.display = show ? '' : 'none';
+			if (show) visiveis++;
+		}
+
+		if (semResultados) semResultados.classList.toggle('hidden', visiveis > 0);
+	}
+
+	[busca, cat, prog, ano].forEach((el) => el?.addEventListener('input', aplicar));
+	limpar?.addEventListener('click', () => {
+		if (busca) busca.value = '';
+		if (cat) cat.value = '';
+		if (prog) prog.value = '';
+		if (ano) ano.value = '';
+		aplicar();
+	});
+
+	aplicar();
+</script>

@@ -1,0 +1,16 @@
+---
+const base = import.meta.env.BASE_URL;
+const year = new Date().getFullYear();
+---
+<footer class="border-t border-line py-8">
+	<div class="mx-auto flex max-w-6xl flex-col items-center gap-2 px-6 text-center text-sm text-neutral-500">
+		<p class="font-semibold text-neutral-700">Catálogo Marmitech</p>
+		<p>Marmitech · Ensino Médio Técnico &amp; Marmitech Jr. · 9º ano do Ensino Fundamental</p>
+		<p>
+			© {year} ·{' '}
+			<a href={`${base}sobre/`} class="font-medium text-neutral-600 underline decoration-line underline-offset-2 hover:text-ink">
+				Sobre o projeto
+			</a>
+		</p>
+	</div>
+</footer>

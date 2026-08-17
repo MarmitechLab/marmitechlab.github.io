@@ -1,0 +1,26 @@
+---
+import type { Project } from '../lib/projects';
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+const total = projects.length;
+const jogos = projects.filter((p) => p.data.category === 'jogo').length;
+const estudantes = projects.reduce((acc, p) => acc + p.data.authors.length, 0);
+---
+<dl class="grid grid-cols-3 gap-4">
+	<div class="rounded-xl border border-line bg-white p-4 text-center">
+		<dt class="text-xs font-medium uppercase tracking-wide text-neutral-500">Projetos</dt>
+		<dd class="mt-1 text-3xl font-bold text-ink">{total}</dd>
+	</div>
+	<div class="rounded-xl border border-line bg-white p-4 text-center">
+		<dt class="text-xs font-medium uppercase tracking-wide text-neutral-500">Jogos</dt>
+		<dd class="mt-1 text-3xl font-bold text-marmitech-jr">{jogos}</dd>
+	</div>
+	<div class="rounded-xl border border-line bg-white p-4 text-center">
+		<dt class="text-xs font-medium uppercase tracking-wide text-neutral-500">Estudantes</dt>
+		<dd class="mt-1 text-3xl font-bold text-ink">{estudantes}</dd>
+	</div>
+</dl>

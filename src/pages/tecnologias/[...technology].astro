@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectGrid from '../../components/ProjectGrid.astro';
+import { getPublishedProjects } from '../../lib/projects';
+
+export async function getStaticPaths() {
+	const published = await getPublishedProjects();
+	const techSet = new Set<string>();
+	for (const p of published) {
+		for (const tech of p.data.technologies) techSet.add(tech);
+	}
+	return [...techSet].map((technology) => ({
+		params: { technology },
+		props: { technology },
+	}));
+}
+
+const { technology } = Astro.props;
+const published = await getPublishedProjects();
+const projects = published.filter((p) =>
+	p.data.technologies.some((t) => t.toLowerCase() === technology.toLowerCase())
+);
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout
+	title={`${technology} — Catálogo Marmitech`}
+	description={`Projetos que usam ${technology}.`}
+>
+	<section class="mx-auto max-w-6xl px-6 py-12">
+		<a
+			href={`${base}tecnologias/`}
+			class="text-sm font-medium text-neutral-500 transition hover:text-ink"
+		>
+			← Todas as tecnologias
+		</a>
+		<h1 class="mt-4 text-3xl font-bold tracking-tight">{technology}</h1>
+		<p class="mt-2 text-neutral-600">
+			{projects.length} projeto(s) usando esta tecnologia.
+		</p>
+		<div class="mt-8">
+			{projects.length > 0 ? (
+				<ProjectGrid projects={projects} />
+			) : (
+				<p class="text-neutral-500">Nenhum projeto publicado com esta tecnologia.</p>
+			)}
+		</div>
+	</section>
+</BaseLayout>

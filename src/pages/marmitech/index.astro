@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectGrid from '../../components/ProjectGrid.astro';
+import ProgramBadge from '../../components/ProgramBadge.astro';
+import { getPublishedProjects, byProgram } from '../../lib/projects';
+
+const published = await getPublishedProjects();
+const projects = byProgram(published, 'marmitech');
+---
+<BaseLayout
+	title="Marmitech — projetos — Catálogo Marmitech"
+	description="Projetos do Marmitech (Ensino Médio Técnico)."
+>
+	<section class="mx-auto max-w-6xl px-6 py-12">
+		<div class="flex flex-wrap items-center gap-3">
+			<h1 class="text-3xl font-bold tracking-tight">Marmitech</h1>
+			<ProgramBadge program="marmitech" />
+		</div>
+		<p class="mt-3 max-w-2xl text-neutral-600">
+			Projetos do Marmitech — Educação Tecnológica Voluntária (Ensino Médio Técnico, cursos de
+			Desenvolvimento de Sistemas e Jogos Digitais).
+		</p>
+		<div class="mt-8">
+			{projects.length > 0 ? (
+				<ProjectGrid projects={projects} />
+			) : (
+				<p class="text-neutral-500">Nenhum projeto publicado do Marmitech ainda.</p>
+			)}
+		</div>
+	</section>
+</BaseLayout>

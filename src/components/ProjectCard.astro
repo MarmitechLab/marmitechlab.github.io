@@ -1,0 +1,68 @@
+---
+import ProgramBadge from './ProgramBadge.astro';
+import TechnologyBadge from './TechnologyBadge.astro';
+import CategoryBadge from './CategoryBadge.astro';
+import type { Project } from '../lib/projects';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const { data, id } = project;
+const base = import.meta.env.BASE_URL;
+const topTechs = data.technologies.slice(0, 3);
+const searchText = [data.title, data.shortDescription, data.class, ...data.technologies]
+  .join(' ')
+  .toLowerCase();
+---
+<article
+	class="project-card flex flex-col overflow-hidden rounded-2xl border border-line bg-white transition hover:shadow-lg"
+	data-project-card
+	data-category={data.category}
+	data-program={data.program}
+	data-year={String(data.year)}
+	data-search={searchText}
+>
+	<a href={`${base}projetos/${id}/`} class="block">
+		<div class="aspect-video overflow-hidden bg-neutral-100">
+			<img
+				src={`${base}${data.cover}`}
+				alt={`Capa do projeto ${data.title}`}
+				loading="lazy"
+				class="h-full w-full object-cover transition duration-300 hover:scale-105"
+			/>
+		</div>
+	</a>
+	<div class="flex flex-1 flex-col gap-3 p-5">
+		<div class="flex items-center justify-between gap-2">
+			<CategoryBadge category={data.category} />
+			<ProgramBadge program={data.program} />
+		</div>
+		<h3>
+			<a
+				href={`${base}projetos/${id}/`}
+				class="text-lg font-bold tracking-tight hover:text-marmitech-jr"
+			>
+				{data.title}
+			</a>
+		</h3>
+		<p class="flex-1 text-sm text-neutral-600">{data.shortDescription}</p>
+		<p class="text-xs text-neutral-500">
+			{data.year} · {data.class}
+		</p>
+		{topTechs.length > 0 && (
+			<div class="flex flex-wrap gap-1.5">
+				{topTechs.map((tech) => (
+					<TechnologyBadge name={tech} />
+				))}
+			</div>
+		)}
+		<a
+			href={`${base}projetos/${id}/`}
+			class="mt-1 inline-flex w-fit items-center gap-1 rounded-md bg-ink px-3.5 py-1.5 text-sm font-medium text-paper transition hover:bg-neutral-800"
+		>
+			Ver projeto →
+		</a>
+	</div>
+</article>

@@ -1,0 +1,39 @@
+---
+const base = import.meta.env.BASE_URL;
+const links = [
+  { href: base, label: 'Início' },
+  { href: `${base}projetos/`, label: 'Projetos' },
+  { href: `${base}marmitech/`, label: 'Marmitech' },
+  { href: `${base}marmitech-jr/`, label: 'Marmitech Jr.' },
+  { href: `${base}tecnologias/`, label: 'Tecnologias' },
+  { href: `${base}sobre/`, label: 'Sobre' },
+];
+---
+<header class="sticky top-0 z-10 border-b border-line bg-paper/90 backdrop-blur">
+	<nav class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-6 py-3">
+		<a href={base} class="flex items-center gap-3">
+			<img
+				src={`${base}assets/logo/marmitech_logo.png`}
+				alt="Logo Marmitech"
+				width="40"
+				height="40"
+				class="h-10 w-10"
+			/>
+			<span class="text-lg font-semibold tracking-tight">
+				Catálogo <span class="text-marmitech-jr">Marmitech</span>
+			</span>
+		</a>
+		<ul class="flex flex-wrap items-center gap-1 text-sm">
+			{links.map((link) => (
+				<li>
+					<a
+						href={link.href}
+						class="rounded-md px-3 py-2 font-medium text-neutral-700 transition hover:bg-black/5 hover:text-ink"
+					>
+						{link.label}
+					</a>
+				</li>
+			))}
+		</ul>
+	</nav>
+</header>

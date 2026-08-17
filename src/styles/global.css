@@ -1,5 +1,6 @@
 @import "@fontsource-variable/space-grotesk";
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* ============================================================
    Identidade visual Marmitech (Tailwind v4 — tokens CSS-first)

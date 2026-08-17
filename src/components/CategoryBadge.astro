@@ -1,0 +1,18 @@
+---
+interface Props {
+  category: string;
+}
+
+const categories: Record<string, string> = {
+  jogo: 'Jogo',
+  app: 'App',
+  web: 'Web',
+  ia: 'IA',
+  outro: 'Outro',
+};
+
+const { category } = Astro.props;
+---
+<span class="text-xs font-semibold uppercase tracking-wide text-marmitech-jr">
+	{categories[category] ?? category}
+</span>

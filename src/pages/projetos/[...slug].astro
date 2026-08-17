@@ -1,0 +1,123 @@
+---
+import { getCollection, render } from 'astro:content';
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+import ProgramBadge from '../../components/ProgramBadge.astro';
+import TechnologyBadge from '../../components/TechnologyBadge.astro';
+import CategoryBadge from '../../components/CategoryBadge.astro';
+
+export async function getStaticPaths() {
+	const projects = await getCollection('projects', ({ data }) => data.status === 'publicado');
+	return projects.map((project) => ({
+		params: { slug: project.id },
+		props: { project },
+	}));
+}
+
+const { project } = Astro.props;
+const { data, id } = project;
+const { Content } = await render(project);
+const base = import.meta.env.BASE_URL;
+---
+<ProjectLayout title={`${data.title} — Catálogo Marmitech`} description={data.shortDescription}>
+	<article class="mx-auto max-w-4xl px-6 py-10">
+		<a
+			href={`${base}projetos/`}
+			class="text-sm font-medium text-neutral-500 transition hover:text-ink"
+		>
+			← Voltar para projetos
+		</a>
+
+		<div class="mt-5 flex flex-wrap items-center gap-2">
+			<CategoryBadge category={data.category} />
+			<ProgramBadge program={data.program} />
+		</div>
+		<h1 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{data.title}</h1>
+		<p class="mt-1 text-neutral-500">
+			{data.year} · {data.class}
+		</p>
+
+		<img
+			src={`${base}${data.cover}`}
+			alt={`Capa do projeto ${data.title}`}
+			class="mt-6 w-full rounded-2xl border border-line object-cover"
+		/>
+
+		<div class="prose prose-neutral mt-8 max-w-none">
+			<Content />
+		</div>
+
+		<section class="mt-10 grid gap-6 rounded-2xl border border-line bg-white p-6 sm:grid-cols-2">
+			<div>
+				<h2 class="text-sm font-semibold uppercase tracking-wide text-neutral-500">Equipe</h2>
+				<ul class="mt-2 space-y-1">
+					{data.authors.map((author) => (
+						<li class="text-neutral-700">
+							{author.name}
+							{author.team ? <span class="text-neutral-500"> · {author.team}</span> : null}
+						</li>
+					))}
+				</ul>
+				{data.teacher && (
+					<p class="mt-2 text-sm text-neutral-500">Professor(a) responsável: {data.teacher}</p>
+				)}
+			</div>
+
+			<div>
+				<h2 class="text-sm font-semibold uppercase tracking-wide text-neutral-500">Tecnologias</h2>
+				<div class="mt-2 flex flex-wrap gap-1.5">
+					{data.technologies.map((tech) => <TechnologyBadge name={tech} />)}
+				</div>
+			</div>
+		</section>
+
+		{data.ai?.used && (
+			<section class="mt-6 rounded-2xl border border-marmitech-jr/40 bg-orange-50 p-6">
+				<h2 class="font-semibold text-ink">🤖 Uso de IA no projeto</h2>
+				{data.ai.tools.length > 0 && (
+					<p class="mt-2 text-sm text-neutral-700">
+						<strong>Ferramentas:</strong> {data.ai.tools.join(', ')}
+					</p>
+				)}
+				{data.ai.uses.length > 0 && (
+					<p class="mt-1 text-sm text-neutral-700">
+						<strong>Como foi usada:</strong> {data.ai.uses.join('; ')}
+					</p>
+				)}
+			</section>
+		)}
+
+		{data.learning && (
+			<section class="mt-6">
+				<h2 class="text-sm font-semibold uppercase tracking-wide text-neutral-500">
+					O que aprendemos
+				</h2>
+				<p class="mt-2 text-neutral-700">{data.learning}</p>
+			</section>
+		)}
+
+		{data.links && (data.links.demo || data.links.repository) && (
+			<div class="mt-8 flex flex-wrap gap-3">
+				{data.links.demo && (
+					<a
+						href={data.links.demo}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="rounded-md bg-marmitech-jr px-5 py-2.5 font-medium text-white transition hover:opacity-90"
+					>
+						▶ Jogar / Ver demo
+					</a>
+				)}
+				{data.links.repository && (
+					<a
+						href={data.links.repository}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="rounded-md border border-line px-5 py-2.5 font-medium transition hover:bg-black/5"
+					>
+						Código-fonte ↗
+					</a>
+				)}
+			</div>
+		)}
+	</article>
+</ProjectLayout>

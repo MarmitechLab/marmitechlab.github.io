@@ -1,0 +1,18 @@
+---
+interface Props {
+  program: 'marmitech' | 'marmitech-jr';
+}
+
+const { program } = Astro.props;
+const styles = {
+  marmitech: 'bg-ink text-paper',
+  'marmitech-jr': 'bg-marmitech-jr text-white',
+};
+const label = program === 'marmitech-jr' ? 'Marmitech Jr.' : 'Marmitech';
+---
+<span
+	class={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${styles[program]}`}
+>
+	<span class="h-1.5 w-1.5 rounded-full bg-current opacity-70" aria-hidden="true"></span>
+	{label}
+</span>

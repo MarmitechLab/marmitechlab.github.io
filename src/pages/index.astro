@@ -1,74 +1,91 @@
 ---
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Stats from '../components/Stats.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
+import ProgramBadge from '../components/ProgramBadge.astro';
+import { getPublishedProjects, getFeaturedProjects, byProgram } from '../lib/projects';
+
+const base = import.meta.env.BASE_URL;
+const published = await getPublishedProjects();
+const featured = await getFeaturedProjects();
+const jr = byProgram(published, 'marmitech-jr');
 ---
-
-<!doctype html>
-<html lang="pt-br">
-	<head>
-		<meta charset="utf-8" />
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href={`${import.meta.env.BASE_URL}/favicon-32.png`}
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href={`${import.meta.env.BASE_URL}/favicon-16.png`}
-		/>
-		<link
-			rel="apple-touch-icon"
-			href={`${import.meta.env.BASE_URL}/apple-touch-icon.png`}
-		/>
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<meta
-			name="description"
-			content="Catálogo dos projetos estudantis do Marmitech (Ensino Médio Técnico) e Marmitech Jr. (9º ano do Ensino Fundamental) — jogos, apps, sites e projetos de IA."
-		/>
-		<title>Catálogo Marmitech</title>
-	</head>
-	<body>
-		<header class="border-b border-line">
-			<nav class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-				<a href={`${import.meta.env.BASE_URL}/`} class="flex items-center gap-3">
-					<img
-						src={`${import.meta.env.BASE_URL}/assets/logo/marmitech_logo.png`}
-						alt="Logo Marmitech"
-						width="40"
-						height="40"
-						class="h-10 w-10"
-					/>
-					<span class="text-lg font-semibold tracking-tight">
-						Catálogo <span class="text-marmitech-jr">Marmitech</span>
-					</span>
-				</a>
-				<span class="rounded-full border border-line px-3 py-1 text-xs font-medium text-neutral-500">
-					Fase 1 · setup
-				</span>
-			</nav>
-		</header>
-
-		<main class="mx-auto max-w-5xl px-6 py-20">
-			<h1 class="max-w-2xl text-4xl font-bold tracking-tight sm:text-5xl">
+<BaseLayout
+	title="Catálogo Marmitech"
+	description="Catálogo dos projetos estudantis do Marmitech (Ensino Médio Técnico) e Marmitech Jr. (9º ano do Ensino Fundamental)."
+>
+	<!-- Hero -->
+	<section class="mx-auto max-w-6xl px-6 pt-16 pb-12">
+		<div class="max-w-3xl">
+			<p class="flex items-center gap-2 text-sm font-medium text-neutral-500">
+				<span class="inline-flex h-1.5 w-1.5 rounded-full bg-marmitech-jr"></span>
+				Marmitech · Educação Tecnológica Voluntária
+			</p>
+			<h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
 				Projetos feitos por estudantes,
 				<br />
 				<span class="text-marmitech-jr">para o mundo ver.</span>
 			</h1>
 			<p class="mt-4 max-w-xl text-lg text-neutral-600">
-				O catálogo dos projetos do Marmitech e Marmitech Jr. — jogos, apps, sites e projetos de
-				IA.
+				Jogos, apps, sites e projetos de IA criados pelo Marmitech (Ensino Médio Técnico) e
+				Marmitech Jr. (9º ano do Ensino Fundamental).
 			</p>
-			<div class="mt-10 flex flex-wrap gap-4 text-sm">
-				<span class="rounded-md bg-ink px-4 py-2 font-medium text-paper">Estrutura pronta</span>
-				<span class="rounded-md border border-line px-4 py-2 font-medium">Conteúdo na Fase 6</span>
+			<div class="mt-6 flex flex-wrap gap-3">
+				<a
+					href={`${base}projetos/`}
+					class="rounded-md bg-ink px-5 py-2.5 font-medium text-paper transition hover:bg-neutral-800"
+				>
+					Explorar projetos
+				</a>
+				<a
+					href={`${base}sobre/`}
+					class="rounded-md border border-line px-5 py-2.5 font-medium transition hover:bg-black/5"
+				>
+					Sobre o programa
+				</a>
 			</div>
-		</main>
+		</div>
+	</section>
 
-		<footer class="border-t border-line py-6 text-center text-sm text-neutral-500">
-			Marmitech · Ensino Médio Técnico &amp; Marmitech Jr. · 9º ano do Ensino Fundamental
-		</footer>
-	</body>
-</html>
+	<!-- Estatísticas -->
+	<section class="mx-auto max-w-6xl px-6 pb-12">
+		<Stats projects={published} />
+	</section>
+
+	<!-- Destaques -->
+	<section class="mx-auto max-w-6xl px-6 pb-12">
+		<div class="mb-6 flex items-center justify-between">
+			<h2 class="text-2xl font-bold tracking-tight">Em destaque</h2>
+			<a
+				href={`${base}projetos/`}
+				class="text-sm font-medium text-marmitech-jr hover:underline"
+			>
+				Ver todos →
+			</a>
+		</div>
+		{featured.length > 0 ? (
+			<ProjectGrid projects={featured} />
+		) : (
+			<p class="text-neutral-500">Nenhum projeto em destaque publicado ainda.</p>
+		)}
+	</section>
+
+	<!-- Marmitech Jr. -->
+	<section class="border-t border-line bg-white">
+		<div class="mx-auto max-w-6xl px-6 py-12">
+			<div class="mb-3 flex flex-wrap items-center gap-3">
+				<h2 class="text-2xl font-bold tracking-tight">Marmitech Jr.</h2>
+				<ProgramBadge program="marmitech-jr" />
+			</div>
+			<p class="mb-6 max-w-2xl text-neutral-600">
+				Projetos do 9º ano do Ensino Fundamental — experimentação, criatividade, jogos e
+				programação.
+			</p>
+			{jr.length > 0 ? (
+				<ProjectGrid projects={jr} />
+			) : (
+				<p class="text-neutral-500">Nenhum projeto publicado do Marmitech Jr. ainda.</p>
+			)}
+		</div>
+	</section>
+</BaseLayout>
