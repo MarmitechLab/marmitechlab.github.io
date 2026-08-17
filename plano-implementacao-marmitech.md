@@ -76,23 +76,26 @@ export default {
 ## Fase 1 — Setup do projeto
 
 ```bash
-npm create astro@latest marmitech-catalogo -- --template minimal --typescript strict
-cd marmitech-catalogo
-npx astro add tailwind
+# Ambiente com Node 20 → fixar Astro 5 (Astro 7 exige Node ≥ 22.12)
+npm create astro@4 . -- --template minimal --typescript strict --no-install --no-git --yes
+npm install
+npx astro add tailwind --yes
 ```
 
-- [ ] Confirmar `astro.config.mjs` com `site` e `base` corretos para GitHub Pages:
+- [x] Confirmar `astro.config.mjs` com `site` e `base` corretos para GitHub Pages:
 
 ```js
 export default defineConfig({
-  site: 'https://usuario.github.io',
-  base: '/marmitech-catalogo',
+  site: 'https://marmitechlab.github.io',
+  base: '/catalogo',
 });
 ```
 
-- [ ] Rodar `npm run dev` e confirmar que o projeto sobe localmente
-- [ ] Configurar Tailwind com as cores da identidade visual do Marmitech (extrair da logo)
-- [ ] Criar `src/styles/global.css` com tokens de cor, tipografia e espaçamento
+- [x] Rodar `npm run dev` e confirmar que o projeto sobe localmente
+- [x] Configurar Tailwind com as cores da identidade visual do Marmitech (extrair da logo)
+- [x] Criar `src/styles/global.css` com tokens de cor, tipografia e espaçamento
+
+> **Adaptação:** o `astro add tailwind` instala a **Tailwind v4** (CSS-first). Os tokens da identidade ficam em `@theme` no `global.css` em vez de `tailwind.config.mjs` (estilo v3 do plano). Detalhes em `docs/fase-1-setup.md`.
 
 ---
 

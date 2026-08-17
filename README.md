@@ -14,13 +14,25 @@ Site-catálogo dos projetos estudantis do **Marmitech** (Ensino Médio) e **Marm
 | Fase | Status |
 |---|---|
 | 0 — Preparação | ✅ concluída |
-| 1 — Setup do projeto | ⏳ pendente |
+| 1 — Setup do projeto | ✅ concluída |
 | 2–8 | ⏳ pendente |
+
+## Como rodar
+
+```bash
+npm install        # instala dependências
+npm run dev        # dev server → http://localhost:4321/catalogo
+npm run build      # gera ./dist (estático, pronto para deploy)
+npm run preview    # serve o build localmente
+```
+
+> Ambiente usa Node 20 → Astro **5.18.2** (pinned). Astro 7 exigiria Node ≥ 22.
 
 ## Documentação
 
 - [`plano-implementacao-marmitech.md`](./plano-implementacao-marmitech.md) — plano completo de implementação
-- [`docs/fase-0-decisoes.md`](./docs/fase-0-decisoes.md) — registro de decisões e preparação da Fase 0
+- [`docs/fase-0-decisoes.md`](./docs/fase-0-decisoes.md) — decisões e preparação (Fase 0)
+- [`docs/fase-1-setup.md`](./docs/fase-1-setup.md) — registro do setup (Fase 1)
 
 ## Repositório
 
