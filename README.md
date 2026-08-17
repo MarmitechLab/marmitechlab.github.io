@@ -22,9 +22,12 @@ Site-catálogo dos projetos estudantis do **Marmitech** (Ensino Médio) e **Marm
 - [`plano-implementacao-marmitech.md`](./plano-implementacao-marmitech.md) — plano completo de implementação
 - [`docs/fase-0-decisoes.md`](./docs/fase-0-decisoes.md) — registro de decisões e preparação da Fase 0
 
+## Repositório
+
+- GitHub: [`MarmitechLab/catalogo`](https://github.com/MarmitechLab/catalogo) (público)
+- Site (GitHub Pages): `https://marmitechlab.github.io/catalogo`
+
 ## Decisões pendentes (Fase 0)
 
-- [ ] Visibilidade do repositório no GitHub (público × privado)
 - [ ] Política de exposição de dados dos estudantes
 - [ ] Exportar ativos de logo em SVG (Marmitech e variante Jr.)
-- [ ] Criar repositório remoto `marmitech-catalogo` no GitHub

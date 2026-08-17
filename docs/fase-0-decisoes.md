@@ -10,30 +10,26 @@
 
 | Item | Decisão / status |
 |---|---|
-| Nome proposto | `marmitech-catalogo` |
-| Criar no GitHub | ❌ pendente — `gh` CLI não instalado; criar manualmente em github.com ou instalar `gh` (`brew install gh`) |
-| Visibilidade | ❓ **PENDENTE** |
+| Repositório | ✅ [`MarmitechLab/catalogo`](https://github.com/MarmitechLab/catalogo) |
+| Visibilidade | ✅ **público** |
+| Remote `origin` | ✅ `https://github.com/MarmitechLab/catalogo.git` (branch `main` sincronizada) |
 
-**Recomendação (visibilidade):** começar como **privado** durante o desenvolvimento e só tornar **público** após a política de exposição de dados dos estudantes (item 3) ser definida e revisada com os professores. Repositórios públicos expõem imagens e nomes de alunos a qualquer pessoa.
+> Observação: o repositório real usa o nome `catalogo` (não `marmitech-catalogo` como proposto no plano). Todas as referências a nome/base/URL devem usar `catalogo`.
 
-**Comando para quando o `gh` estiver disponível:**
-```bash
-gh repo create marmitech-catalogo --private --source . --remote origin --push
-```
-(substitua `--private` por `--public` quando a decisão do item 3 for fechada)
+**Risco associado ao repositório público:** imagens e nomes de alunos ficam acessíveis a qualquer pessoa. A política do item 3 deve ser aplicada **antes** do cadastro de conteúdo real (Fase 6).
 
 ---
 
 ## 2. Domínio
 
-**Definição da V1:** `https://<usuario>.github.io/marmitech-catalogo`
+**Definição da V1:** `https://marmitechlab.github.io/catalogo`
 
 Isso será refletido no `astro.config.mjs` (Fase 1):
 
 ```js
 export default defineConfig({
-  site: 'https://douglaz.github.io',
-  base: '/marmitech-catalogo',
+  site: 'https://marmitechlab.github.io',
+  base: '/catalogo',
 });
 ```
 
@@ -73,11 +69,11 @@ Domínio próprio fica **fora do escopo da V1** — reavaliar apenas se houver n
 
 | Item | Status |
 |---|---|
-| Git inicializado | ✅ `main` (neste commit) |
+| Git inicializado | ✅ `main` |
+| Remote `origin` | ✅ `https://github.com/MarmitechLab/catalogo.git` |
 | Identidade git | ✅ `douglaz` / `fdcsone@hotmail.com` |
 | Node.js | ✅ v20.20.2 |
 | npm | ✅ 10.8.2 |
-| GitHub CLI (`gh`) | ❌ não instalado (documentado acima) |
 
 ---
 
@@ -86,7 +82,8 @@ Domínio próprio fica **fora do escopo da V1** — reavaliar apenas se houver n
 - [x] Git local inicializado
 - [x] `.gitignore` e `README.md` criados
 - [x] Registro de decisões criado (este arquivo)
-- [ ] Decidir visibilidade do repositório (item 1)
-- [ ] Criar repositório no GitHub: `marmitech-catalogo`
+- [x] Repositório criado no GitHub: `MarmitechLab/catalogo` (público)
+- [x] `origin` configurado e `main` publicada
+- [x] Visibilidade definida (pública)
 - [ ] Exportar logo em SVG + favicon (item 4)
 - [ ] Definir política de dados dos estudantes (item 3)
