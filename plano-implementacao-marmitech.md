@@ -160,28 +160,32 @@ export const collections = { projects };
 
 ## Fase 3 — Componentes e layouts
 
-- [ ] `Header.astro` — logo, navegação (Início, Projetos, Marmitech, Marmitech Jr., Tecnologias, Sobre)
-- [ ] `Footer.astro`
-- [ ] `Stats.astro` — número de projetos, jogos, estudantes (calculado a partir da collection)
-- [ ] `ProjectCard.astro` — capa, categoria, título, descrição curta, programa/ano, tecnologias, botão "Ver projeto"
-- [ ] `ProjectGrid.astro` — grade responsiva de cards
-- [ ] `ProjectFilters.astro` — busca por texto + filtros (categoria, programa, ano, tecnologia, turma)
-- [ ] `TechnologyBadge.astro` e `ProgramBadge.astro`
-- [ ] `BaseLayout.astro` — estrutura comum (head, header, footer, SEO básico)
-- [ ] `ProjectLayout.astro` — layout da página individual do projeto
+- [x] `Header.astro` — logo, navegação (Início, Projetos, Marmitech, Marmitech Jr., Tecnologias, Sobre)
+- [x] `Footer.astro`
+- [x] `Stats.astro` — número de projetos, jogos, estudantes (calculado a partir da collection)
+- [x] `ProjectCard.astro` — capa, categoria, título, descrição curta, programa/ano, tecnologias, botão "Ver projeto"
+- [x] `ProjectGrid.astro` — grade responsiva de cards
+- [x] `ProjectFilters.astro` — busca por texto + filtros (categoria, programa, ano)
+- [x] `TechnologyBadge.astro` e `ProgramBadge.astro`
+- [x] `BaseLayout.astro` — estrutura comum (head, header, footer, SEO básico)
+- [x] `ProjectLayout.astro` — layout da página individual do projeto
+
+> Extra: criados também `CategoryBadge.astro`; o `ProjectFilters` usa JS vanilla (sem framework) via atributos `data-*`.
 
 ---
 
 ## Fase 4 — Páginas principais
 
-- [ ] `src/pages/index.astro` — Home (hero, estatísticas, projetos em destaque, destaque Marmitech Jr.)
-- [ ] `src/pages/projetos/index.astro` — Explorar projetos (filtros + grid)
-- [ ] `src/pages/projetos/[...slug].astro` — página individual do projeto (usa `ProjectLayout`)
-- [ ] `src/pages/marmitech/index.astro` — projetos filtrados por `program: marmitech`
-- [ ] `src/pages/marmitech-jr/index.astro` — projetos filtrados por `program: marmitech-jr`
-- [ ] `src/pages/tecnologias/[...technology].astro` — página dinâmica por tecnologia
-- [ ] `src/pages/sobre/index.astro` — história do projeto, metodologia
-- [ ] (Opcional na V1) `src/pages/laboratorio/index.astro` — experimentos e protótipos
+- [x] `src/pages/index.astro` — Home (hero, estatísticas, projetos em destaque, destaque Marmitech Jr.)
+- [x] `src/pages/projetos/index.astro` — Explorar projetos (filtros + grid)
+- [x] `src/pages/projetos/[...slug].astro` — página individual do projeto (usa `ProjectLayout`)
+- [x] `src/pages/marmitech/index.astro` — projetos filtrados por `program: marmitech`
+- [x] `src/pages/marmitech-jr/index.astro` — projetos filtrados por `program: marmitech-jr`
+- [x] `src/pages/tecnologias/[...technology].astro` — página dinâmica por tecnologia
+- [x] `src/pages/sobre/index.astro` — história do projeto, metodologia
+- [ ] (Opcional na V1) `src/pages/laboratorio/index.astro` — experimentos e protótipos (não implementado)
+
+> Extra: criada `src/pages/tecnologias/index.astro` (índice de tecnologias para a navegação).
 
 Regra importante: só exibir na build final os projetos com `status: publicado`.
 
