@@ -56,7 +56,7 @@ export default {
           DEFAULT: '#111111', // Marmitech (Ensino Médio Técnico) — preto puro, mais "sério"
         },
         'marmitech-jr': {
-          DEFAULT: '#F97316', // Marmitech Jr. (9º ano EF) — acento laranja/quente, mais lúdico
+          DEFAULT: '#F97316', // Marmitech Jr. (9º ano do Ensino Fundamental) — acento laranja/quente, mais lúdico
         },
       },
       fontFamily: {
@@ -70,7 +70,7 @@ export default {
 **Diretrizes:**
 - Ícone da logo sempre em traço único (`stroke`), nunca preenchido — manter consistência com o estilo circuito
 - Marmitech (Ensino Médio Técnico): preto/branco, tom mais técnico e sóbrio
-- Marmitech Jr. (9º ano EF): mesma logo/traço, mas com o acento laranja para diferenciar visualmente as seções sem criar uma segunda marca
+- Marmitech Jr. (9º ano do Ensino Fundamental): mesma logo/traço, mas com o acento laranja para diferenciar visualmente as seções sem criar uma segunda marca
 - Badges de categoria (Jogo, App, Web, IA) podem usar o motivo de "nó de circuito" como marcador visual
 - Favicon: recorte apenas do ícone (sem o wordmark), em SVG
 
