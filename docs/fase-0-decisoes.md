@@ -108,6 +108,35 @@ authors: z.array(z.object({
 
 ---
 
+## 6. Definição dos programas (referência correta)
+
+✅ **Alinhado com o contexto real — 2026-08-17.**
+
+### Marmitech — Educação Tecnológica Voluntária
+
+- Público: estudantes dos cursos técnicos de **Desenvolvimento de Sistemas** e **Jogos Digitais** do **Ensino Médio**
+- Momento: **horário do intervalo**; participação **voluntária**
+- Foco: tecnologia de forma **prática e descontraída** — aplicações e jogos educativos
+- Competências: lógica de programação, pensamento computacional, experimentação prática, resolução de problemas
+- ⚠️ Separado do **Marmitech Agenda** e do projeto **Nossas Emoções** — não misturar
+- ⚠️ O planejamento completo original não foi recuperado — **não inventar** estações, cronograma ou atividades não registradas
+
+### Marmitech Jr.
+
+- Extensão do Marmitech para estudantes do **9º ano do Ensino Fundamental**
+- Foco: experimentação, criatividade, jogos, programação, IA e pensamento computacional
+- Identidade: mesma logo/marca, com acento laranja `#F97316` para diferenciar os dois eixos sem criar uma segunda marca
+
+### Reflexo no schema (Fase 2)
+
+```ts
+program: z.enum(['marmitech', 'marmitech-jr']),
+// 'marmitech'    → Ensino Médio Técnico (Desenvolvimento de Sistemas e Jogos Digitais)
+// 'marmitech-jr' → 9º ano do Ensino Fundamental
+```
+
+---
+
 ## Checklist resumido da Fase 0
 
 - [x] Git local inicializado

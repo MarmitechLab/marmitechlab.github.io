@@ -1,6 +1,11 @@
 # Catálogo Marmitech
 
-Site-catálogo dos projetos estudantis do **Marmitech** (Ensino Médio) e **Marmitech Jr.** — jogos, apps, sites e projetos de IA criados pelos estudantes.
+Site-catálogo dos projetos estudantis do **Marmitech — Educação Tecnológica Voluntária** (Ensino Médio Técnico) e **Marmitech Jr.** (9º ano do Ensino Fundamental) — jogos, apps, sites e projetos de IA criados pelos estudantes.
+
+## Os projetos
+
+- **Marmitech — Educação Tecnológica Voluntária** — voltado a estudantes dos cursos técnicos de **Desenvolvimento de Sistemas** e **Jogos Digitais** do **Ensino Médio**. Ocorre no horário do **intervalo**, com participação **voluntária**, trabalhando lógica de programação, pensamento computacional, experimentação prática e resolução de problemas por meio de aplicações e jogos educativos.
+- **Marmitech Jr.** — extensão do Marmitech direcionada a estudantes do **9º ano do Ensino Fundamental**, com foco em experimentação, criatividade, jogos, programação, IA e pensamento computacional.
 
 ## Stack
 

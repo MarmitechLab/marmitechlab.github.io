@@ -4,6 +4,13 @@ Stack definida: **Astro + TypeScript + Tailwind CSS + Markdown/Content Collectio
 
 ---
 
+## Programas (referência correta)
+
+- **Marmitech — Educação Tecnológica Voluntária** — estudantes dos cursos técnicos de **Desenvolvimento de Sistemas** e **Jogos Digitais** do **Ensino Médio**; no horário do **intervalo**, participação **voluntária**, tecnologia prática e descontraída
+- **Marmitech Jr.** — extensão para estudantes do **9º ano do Ensino Fundamental**; experimentação, criatividade, jogos, programação, IA e pensamento computacional
+
+---
+
 ## Visão geral das fases
 
 | Fase | Nome | Objetivo |
@@ -46,10 +53,10 @@ export default {
         paper: '#FAFAFA',    // fundo
         line: '#D4D4D4',     // divisores, bordas sutis
         marmitech: {
-          DEFAULT: '#111111', // Marmitech (Ensino Médio) — preto puro, mais "sério"
+          DEFAULT: '#111111', // Marmitech (Ensino Médio Técnico) — preto puro, mais "sério"
         },
         'marmitech-jr': {
-          DEFAULT: '#F97316', // Marmitech Jr. — acento laranja/quente, mais lúdico
+          DEFAULT: '#F97316', // Marmitech Jr. (9º ano EF) — acento laranja/quente, mais lúdico
         },
       },
       fontFamily: {
@@ -62,8 +69,8 @@ export default {
 
 **Diretrizes:**
 - Ícone da logo sempre em traço único (`stroke`), nunca preenchido — manter consistência com o estilo circuito
-- Marmitech (Ensino Médio): preto/branco, tom mais técnico e sóbrio
-- Marmitech Jr.: mesma logo/traço, mas com o acento laranja para diferenciar visualmente as seções sem criar uma segunda marca
+- Marmitech (Ensino Médio Técnico): preto/branco, tom mais técnico e sóbrio
+- Marmitech Jr. (9º ano EF): mesma logo/traço, mas com o acento laranja para diferenciar visualmente as seções sem criar uma segunda marca
 - Badges de categoria (Jogo, App, Web, IA) podem usar o motivo de "nó de circuito" como marcador visual
 - Favicon: recorte apenas do ícone (sem o wordmark), em SVG
 
@@ -111,6 +118,8 @@ const projects = defineCollection({
   schema: z.object({
     title: z.string(),
     shortDescription: z.string(),
+    // 'marmitech'    → Ensino Médio Técnico (Desenvolvimento de Sistemas e Jogos Digitais)
+    // 'marmitech-jr' → 9º ano do Ensino Fundamental
     program: z.enum(['marmitech', 'marmitech-jr']),
     category: z.enum(['jogo', 'app', 'web', 'ia', 'outro']),
     year: z.number(),
