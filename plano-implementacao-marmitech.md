@@ -108,7 +108,9 @@ export default defineConfig({
 
 ## Fase 2 — Modelo de conteúdo (Content Collections)
 
-- [ ] Criar `src/content/config.ts` com o schema do projeto:
+- [x] Criar `src/content.config.ts` com o schema do projeto (Content Layer API do Astro 5):
+
+> O bloco de schema abaixo ilustra os campos (`defineCollection` + `z`); no Astro 5 a configuração fica em `src/content.config.ts` com loader `glob`.
 
 ```ts
 import { defineCollection, z } from 'astro:content';
@@ -150,9 +152,9 @@ const projects = defineCollection({
 export const collections = { projects };
 ```
 
-- [ ] Criar pasta `src/content/projects/` com 2–3 arquivos de exemplo (`.md`) usando dados fictícios, para validar o schema
-- [ ] Criar pasta `public/projects/<slug>/` para capa e screenshots de cada projeto
-- [ ] Documentar no `README.md` como cadastrar um novo projeto (guia rápido para professores)
+- [x] Criar pasta `src/content/projects/` com 2–3 arquivos de exemplo (`.md`) usando dados fictícios, para validar o schema
+- [x] Criar pasta `public/projects/<slug>/` para capa e screenshots de cada projeto
+- [x] Documentar no `README.md` como cadastrar um novo projeto (guia rápido para professores)
 
 ---
 
