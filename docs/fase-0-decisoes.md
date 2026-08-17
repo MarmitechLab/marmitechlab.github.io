@@ -70,15 +70,16 @@ authors: z.array(z.object({
 | Arquivo | Uso |
 |---|---|
 | `public/assets/logo/marmitech-logo.jpg` | Original em JPEG (1024×1024) |
-| `public/assets/logo/marmitech-logo.png` | PNG 512×512 (conversão via `sips`) |
-| `public/favicon-16.png` | Favicon 16×16 |
-| `public/favicon-32.png` | Favicon 32×32 |
-| `public/apple-touch-icon.png` | Ícone de atalho iOS/Android (180×180) |
+| `public/assets/logo/marmitech-logo.png` | PNG 512×512 (conversão via `sips`, sem transparência) |
+| `public/assets/logo/marmitech_logo.png` | PNG 500×499 **com fundo removido** (RGBA) — usada no site |
+| `public/favicon-16.png` | Favicon 16×16 (regenerado da logo transparente) |
+| `public/favicon-32.png` | Favicon 32×32 (regenerado da logo transparente) |
+| `public/apple-touch-icon.png` | Ícone de atalho iOS/Android (180×180, fundo branco) |
 
 ### Limitações do JPEG
 
 - É **raster (bitmap)**: não tem o traço `stroke` vetorial previsto na identidade visual
-- Não tem transparência (fundo provavelmente branco) — o favicon pode precisar de fundo transparente depois
+- ~~Não tinha transparência (fundo branco)~~ ✅ **Resolvido**: adicionada `marmitech_logo.png` com fundo removido, usada no site e nos favicons
 - Se a logo tiver fundo branco, considerar recorte/cropping no futuro
 
 ### SVG — pendente (3 opções, em ordem de preferência)
