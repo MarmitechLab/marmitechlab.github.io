@@ -2,7 +2,7 @@
 
 > Arquivo de apoio do plano: [`../plano-implementacao-marmitech.md`](../plano-implementacao-marmitech.md)
 
-**Status da fase:** 🔄 em andamento
+**Status da fase:** ✅ **concluída** (item opcional do SVG documentado)
 
 ---
 
@@ -16,7 +16,7 @@
 
 > Observação: o repositório real usa o nome `catalogo` (não `marmitech-catalogo` como proposto no plano). Todas as referências a nome/base/URL devem usar `catalogo`.
 
-**Risco associado ao repositório público:** imagens e nomes de alunos ficam acessíveis a qualquer pessoa. A política do item 3 deve ser aplicada **antes** do cadastro de conteúdo real (Fase 6).
+**Risco associado ao repositório público:** imagens e nomes de alunos ficam acessíveis a qualquer pessoa. A política definida no item 3 será aplicada na curadoria do conteúdo (Fase 6) e revisada na Fase 7.
 
 ---
 
@@ -39,15 +39,25 @@ Domínio próprio fica **fora do escopo da V1** — reavaliar apenas se houver n
 
 ## 3. Política de exposição de dados dos estudantes
 
-❓ **PENDENTE** — decisão a ser tomada com os professores responsáveis.
+✅ **DECIDIDA — primeiro nome + turma** (2026-08-17).
 
-| Opção | Uso no catálogo |
-|---|---|
-| Nome completo | Maior reconhecimento, maior exposição |
-| Primeiro nome + turma | Equilíbrio entre reconhecimento e privacidade |
-| Somente "equipe" | Máxima privacidade, menos pessoal |
+### Regra oficial
 
-**Recomendação:** **primeiro nome + turma** por padrão; nunca publicar telefone, e-mail ou redes sociais. Revisar capas/screenshots antes de publicar (podem conter rostos ou dados).
+- Autores/equipe aparecem como **primeiro nome + turma** (ex.: `João · 2º B`)
+- **Nunca** publicar: sobrenome completo, telefone, e-mail, redes sociais ou qualquer dado de contato
+- Capas e screenshots devem ser **revisados antes de publicar** — não podem conter rostos, nomes visíveis em telas ou dados pessoais
+- Crédito completo (nome + sobrenome) só com autorização explícita do estudante/equipe, via professor responsável
+
+### Reflexo no schema de conteúdo (Fase 2)
+
+```ts
+authors: z.array(z.object({
+  name: z.string(),                // primeiro nome apenas (regra editorial)
+  team: z.string().optional(),     // turma ou nome do grupo
+})),
+```
+
+> O schema valida estrutura; a regra de curadoria (o que é cadastrado) é a definida acima e será reavaliada na **Fase 7** antes do lançamento.
 
 ---
 
@@ -105,5 +115,6 @@ Domínio próprio fica **fora do escopo da V1** — reavaliar apenas se houver n
 - [x] Repositório criado no GitHub: `MarmitechLab/catalogo` (público)
 - [x] `origin` configurado e `main` publicada
 - [x] Visibilidade definida (pública)
-- [ ] Exportar logo em SVG + favicon (item 4)
-- [ ] Definir política de dados dos estudantes (item 3)
+- [x] Domínio definido: `https://marmitechlab.github.io/catalogo`
+- [x] Logo organizada: JPEG + PNG + favicons (SVG documentado como opcional — item 4)
+- [x] Política de dados definida: **primeiro nome + turma** (item 3)

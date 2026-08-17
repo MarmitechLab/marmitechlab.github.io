@@ -13,7 +13,7 @@ Site-catálogo dos projetos estudantis do **Marmitech** (Ensino Médio) e **Marm
 
 | Fase | Status |
 |---|---|
-| 0 — Preparação | 🔄 em andamento |
+| 0 — Preparação | ✅ concluída |
 | 1 — Setup do projeto | ⏳ pendente |
 | 2–8 | ⏳ pendente |
 
@@ -27,7 +27,9 @@ Site-catálogo dos projetos estudantis do **Marmitech** (Ensino Médio) e **Marm
 - GitHub: [`MarmitechLab/catalogo`](https://github.com/MarmitechLab/catalogo) (público)
 - Site (GitHub Pages): `https://marmitechlab.github.io/catalogo`
 
-## Decisões pendentes (Fase 0)
+## Fase 0 — concluída
 
-- [ ] Política de exposição de dados dos estudantes
-- [ ] Converter a logo para SVG (raster JPEG já organizado em `public/assets/logo/`)
+- [x] Repositório público criado: [`MarmitechLab/catalogo`](https://github.com/MarmitechLab/catalogo)
+- [x] Domínio definido: `https://marmitechlab.github.io/catalogo`
+- [x] Logo organizada (JPEG/PNG + favicons) — conversão para SVG documentada como opcional
+- [x] Política de dados definida: **primeiro nome + turma**, sem dados de contato
