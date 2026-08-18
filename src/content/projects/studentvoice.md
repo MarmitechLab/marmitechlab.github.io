@@ -5,7 +5,7 @@ program: marmitech
 category: app
 year: 2026
 class: "Marmitech"
-cover: "/projects/studentvoice/cover.svg"
+cover: "/projects/studentvoice/cover.png"
 screenshots: []
 technologies:
   - "Kotlin"
