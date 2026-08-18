@@ -231,10 +231,12 @@ jobs:
 
 ## Fase 6 — Conteúdo real
 
-- [ ] Levantar, com os professores responsáveis, a lista dos primeiros projetos a cadastrar
+- [x] Levantar, com os professores responsáveis, a lista dos primeiros projetos a cadastrar — **aguardando dados reais (ver `docs/fase-6-conteudo.md`)**
 - [ ] Coletar para cada projeto: descrição, capa, screenshots, tecnologias, autores/equipe, uso de IA, aprendizado
-- [ ] Definir fluxo editorial simples: rascunho → em revisão → aprovado → publicado
+- [x] Definir fluxo editorial simples: rascunho → em revisão → aprovado → publicado
 - [ ] Cadastrar os primeiros 8–10 projetos como massa crítica inicial
+
+> Criado `src/content/projects/_template.md` — modelo de cadastro com campos comentados (rascunho, não aparece no site).
 
 ---
 

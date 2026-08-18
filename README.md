@@ -43,7 +43,7 @@ Cada projeto é um arquivo Markdown em `src/content/projects/<slug>.md`. O nome 
 
 **Passo a passo**
 
-1. Copie um projeto existente como modelo (ex.: `caverna-digital.md`).
+1. Copie o modelo `src/content/projects/_template.md` (campos comentados).
 2. Salve como `src/content/projects/meu-projeto.md`.
 3. Preencha o **frontmatter** (bloco entre `---`):
 
