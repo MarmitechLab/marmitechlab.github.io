@@ -193,8 +193,8 @@ Regra importante: só exibir na build final os projetos com `status: publicado`.
 
 ## Fase 5 — Deploy (GitHub Actions → GitHub Pages)
 
-- [ ] Ativar GitHub Pages no repositório (Settings → Pages → Source: GitHub Actions)
-- [ ] Criar `.github/workflows/deploy.yml`:
+- [ ] Ativar GitHub Pages no repositório (Settings → Pages → Source: GitHub Actions) — **ação no GitHub, ver docs/fase-5-deploy.md**
+- [x] Criar `.github/workflows/deploy.yml`:
 
 ```yaml
 name: Deploy to GitHub Pages
@@ -225,7 +225,7 @@ jobs:
 ```
 
 - [ ] Fazer o primeiro push e validar que o site publica corretamente
-- [ ] Conferir imagens, rotas e o `base` path (erros comuns de link quebrado vêm daqui)
+- [ ] Conferir imagens, rotas e o path (deploy na raiz — sem `base`)
 
 ---
 

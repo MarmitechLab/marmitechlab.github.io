@@ -71,9 +71,10 @@ authors: z.array(z.object({
 | `public/assets/logo/marmitech-logo.jpg` | Original em JPEG (1024×1024) |
 | `public/assets/logo/marmitech-logo.png` | PNG 512×512 (conversão via `sips`, sem transparência) |
 | `public/assets/logo/marmitech_logo.png` | PNG 500×499 **com fundo removido** (RGBA) — usada no site |
-| `public/favicon-16.png` | Favicon 16×16 (regenerado da logo transparente) |
-| `public/favicon-32.png` | Favicon 32×32 (regenerado da logo transparente) |
-| `public/apple-touch-icon.png` | Ícone de atalho iOS/Android (180×180, fundo branco) |
+| `public/favicon.svg` | Favicon vetorial (recorte do ícone sem wordmark, fundo branco) |
+| `public/favicon-16.png` | Favicon 16×16 (recorte do ícone sem wordmark, regenerado da logo transparente) |
+| `public/favicon-32.png` | Favicon 32×32 (recorte do ícone sem wordmark, regenerado da logo transparente) |
+| `public/apple-touch-icon.png` | Ícone de atalho iOS/Android (180×180, recorte do ícone sobre fundo branco) |
 
 ### Limitações do JPEG
 

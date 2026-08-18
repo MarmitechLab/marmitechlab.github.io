@@ -23,7 +23,8 @@ Site-catálogo dos projetos estudantis do **Marmitech — Educação Tecnológic
 | 2 — Modelo de conteúdo | ✅ concluída |
 | 3 — Componentes e layouts | ✅ concluída |
 | 4 — Páginas principais | ✅ concluída |
-| 5–8 | ⏳ pendente |
+| 5 — Deploy | 🚧 workflow criado — falta ativar Pages no GitHub |
+| 6–8 | ⏳ pendente |
 
 ## Como rodar
 
@@ -73,6 +74,7 @@ Cada projeto é um arquivo Markdown em `src/content/projects/<slug>.md`. O nome 
 - [`docs/fase-1-setup.md`](./docs/fase-1-setup.md) — registro do setup (Fase 1)
 - [`docs/fase-2-conteudo.md`](./docs/fase-2-conteudo.md) — modelo de conteúdo e schema (Fase 2)
 - [`docs/fase-3-4-frontend.md`](./docs/fase-3-4-frontend.md) — componentes, layouts e páginas (Fases 3+4)
+- [`docs/fase-5-deploy.md`](./docs/fase-5-deploy.md) — deploy no GitHub Pages (Fase 5)
 
 ## Repositório
 

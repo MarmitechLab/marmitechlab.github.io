@@ -1,0 +1,42 @@
+# Deploy do Catálogo Marmitech para GitHub Pages
+# Site: https://marmitechlab.github.io (repositório MarmitechLab.github.io — raiz)
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Garante que só uma publicação por vez
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Instala as dependências, roda `npm run build` e faz upload do artifact
+      # (usa package-lock.json → npm ci). Node 20 = mesma versão do ambiente local.
+      - name: Install, build, and upload site
+        uses: withastro/action@v3
+        with:
+          node-version: 20
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
