@@ -19,7 +19,7 @@ const projects = defineCollection({
     category: z.enum(['jogo', 'app', 'web', 'ia', 'outro']),
     year: z.number(),
     class: z.string(),
-    // Caminho relativo a `public/` (ex.: /projects/caverna-digital/cover.svg)
+    // Caminho relativo a `public/` (ex.: /projects/memotiva/cover.png)
     cover: z.string(),
     screenshots: z.array(z.string()).default([]),
     technologies: z.array(z.string()),
