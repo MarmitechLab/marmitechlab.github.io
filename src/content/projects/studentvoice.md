@@ -6,7 +6,11 @@ category: app
 year: 2026
 class: "Marmitech"
 cover: "/projects/studentvoice/cover.png"
-screenshots: []
+screenshots:
+  - "/projects/studentvoice/current-flow.png"
+  - "/projects/studentvoice/history.png"
+  - "/projects/studentvoice/new-report.png"
+  - "/projects/studentvoice/settings.png"
 technologies:
   - "Kotlin"
   - "Jetpack Compose"
@@ -32,8 +36,8 @@ Aplicativo **Android** desenvolvido no Marmitech para coletar **feedback acadêm
 
 - **Autenticação** — login e cadastro de usuários com Firebase Auth (e-mail/senha e Google)
 - **Seleção de Disciplina** — grade de disciplinas para iniciar a coleta de feedback
-- **Modo Kiosk/Totem** — tela simplificada com feedback rápido por emojis (😀 😐 😞)
-- **Dashboard administrativo** — estatísticas e métricas por disciplina, em tempo real
+- **Modo Kiosk/Totem** — tela simplificada com feedback rápido por emojis (😀 😐 😞), com garantia de anonimato ("seu feedback é anônimo")
+- **Admin Insights** — dashboard com contadores por sentimento, filtro por disciplina e gráfico de sentimento (% positivo), em tempo real
 - **Histórico** — acompanhamento dos feedbacks coletados
 - **Perfil e Configurações** — personalização (via DataStore)
 
