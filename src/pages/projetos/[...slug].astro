@@ -43,6 +43,31 @@ const base = import.meta.env.BASE_URL;
 			class="mt-6 w-full rounded-2xl border border-line object-cover"
 		/>
 
+		{data.screenshots.length > 0 && (
+			<section class="mt-8">
+				<h2 class="text-sm font-semibold uppercase tracking-wide text-neutral-500">
+					Telas do projeto
+				</h2>
+				<div class="mt-3 grid grid-cols-2 gap-4 sm:grid-cols-3">
+					{data.screenshots.map((shot, i) => (
+						<a
+							href={assetUrl(shot)}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="overflow-hidden rounded-xl border border-line bg-white transition hover:shadow-lg"
+						>
+							<img
+								src={assetUrl(shot)}
+								alt={`Tela ${i + 1} do projeto ${data.title}`}
+								loading="lazy"
+								class="max-h-96 w-full object-contain"
+							/>
+						</a>
+					))}
+				</div>
+			</section>
+		)}
+
 		<div class="prose prose-neutral mt-8 max-w-none">
 			<Content />
 		</div>
