@@ -6,7 +6,11 @@ category: app
 year: 2026
 class: "Marmitech"
 cover: "/projects/urna-eletronica/cover.png"
-screenshots: []
+screenshots:
+  - "/projects/urna-eletronica/inicio.png"
+  - "/projects/urna-eletronica/voto.png"
+  - "/projects/urna-eletronica/gravando.png"
+  - "/projects/urna-eletronica/fim.png"
 technologies:
   - "Java"
   - "Android XML"
@@ -35,6 +39,7 @@ Aplicativo **Android** que simula a **urna eletrônica brasileira** com interfac
 - **Corrige** para apagar números digitados
 - **Efeitos sonoros** para teclas, confirmação, erro e correção
 - **Tela de gravação** com barra de progresso animada
+- **Tela de confirmação (FIM)** com relógio e retorno automático
 - **Liberação remota** via Firestore — cada urna só vota quando liberada
 - **Transação atômica** no Firestore: voto registrado e liberação consumida na mesma operação
 

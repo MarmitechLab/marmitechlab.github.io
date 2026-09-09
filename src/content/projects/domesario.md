@@ -5,8 +5,10 @@ program: marmitech
 category: app
 year: 2026
 class: "Marmitech"
-cover: "/projects/domesario/cover.svg"
-screenshots: []
+cover: "/projects/domesario/cover.png"
+screenshots:
+  - "/projects/domesario/voter-validation.png"
+  - "/projects/domesario/settings.png"
 technologies:
   - "Kotlin"
   - "Jetpack Compose"
